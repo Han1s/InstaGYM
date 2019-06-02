@@ -70,7 +70,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="226" y="183" name="gym">
+<table x="206" y="231" name="gym">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -84,9 +84,6 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="email" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="opening_hours" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="description" null="1" autoincrement="0">
@@ -106,7 +103,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="386" y="21" name="review">
+<table x="303" y="0" name="review">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -125,7 +122,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="616" y="186" name="payment">
+<table x="843" y="106" name="payment">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -146,7 +143,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="408" y="172" name="entry">
+<table x="445" y="109" name="entry">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -170,7 +167,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="401" y="373" name="photo">
+<table x="404" y="526" name="photo">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -178,6 +175,27 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="gym" row="id" />
 </row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="537" y="357.4000015258789" name="opening_hours">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="gym" row="id" />
+</row>
+<row name="gym_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="day_of_the_week" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="opening_time" null="1" autoincrement="0">
+<datatype>TIME</datatype>
+<default>NULL</default></row>
+<row name="closing_time" null="1" autoincrement="0">
+<datatype>TIME</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
