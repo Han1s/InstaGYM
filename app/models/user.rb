@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :gyms
+  has_many :gyms, class_name: "Gym", foreign_key: "user_id"
 
   validates :first_name,    presence: true
   validates :last_name,     presence: true
