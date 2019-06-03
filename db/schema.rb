@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_124216) do
+ActiveRecord::Schema.define(version: 2019_06_03_120501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 2019_06_02_124216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_gyms_on_user_id"
+  end
+
+  create_table "opening_hours", force: :cascade do |t|
+    t.integer "week_day"
+    t.time "opening_time"
+    t.time "closing_time"
+    t.bigint "gym_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_id"], name: "index_opening_hours_on_gym_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +58,5 @@ ActiveRecord::Schema.define(version: 2019_06_02_124216) do
   end
 
   add_foreign_key "gyms", "users"
+  add_foreign_key "opening_hours", "gyms"
 end
