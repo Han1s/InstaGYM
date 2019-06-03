@@ -44,3 +44,44 @@ User.create(
 )
 
 puts "Users created"
+
+# GYMS
+Gym.destroy_all
+
+puts "Creating gym: Silowna Baza"
+new_gym = Gym.new(
+  name: "Silowna Baza",
+  address: "Aleja Szczęście Ludwika 5A, 41-807 Zabrze, Poland",
+  phone_number: "123456789",
+  email: "baza@gmail.com",
+  description: "Bardzo dobra silowna",
+  user_id: User.first
+)
+new_gym.user = User.first
+new_gym.save
+
+puts "Creating gym: Lokotka"
+new_gym = Gym.new(
+  name: "Lokotka",
+  address: "Bruntálská 1223/59, 794 01 Krnov",
+  phone_number: "111222333",
+  email: "lokotka@gmail.com",
+  description: "Posilovna pro trojboj a silare",
+  user_id: User.second
+)
+new_gym.user = User.second
+new_gym.save
+
+puts "Creating gym: NoLimits"
+new_gym = Gym.new(
+  name: "Fitness NoLimits",
+  address: "Mikulášská 69, 794 01 Krnov",
+  phone_number: "987654321",
+  email: "nolimits@gmail.com",
+  description: "Maintream posilovna",
+  user_id: User.third
+)
+new_gym.user = User.third
+new_gym.save
+
+puts "Gyms created"
