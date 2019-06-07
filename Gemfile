@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 # Time of day for storing the opening hours
-gem 'tod'
-
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
