@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_193054) do
+ActiveRecord::Schema.define(version: 2019_06_07_195915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "price_cents"
+    t.integer "number_of_entries"
+    t.integer "duration"
+    t.bigint "gym_id"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_id"], name: "index_entries_on_gym_id"
+  end
 
   create_table "gyms", force: :cascade do |t|
     t.string "name"
@@ -75,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_06_07_193054) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "entries", "gyms"
   add_foreign_key "gyms", "users"
   add_foreign_key "hours", "gyms"
   add_foreign_key "photos", "gyms"
