@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_174634) do
+ActiveRecord::Schema.define(version: 2019_06_07_193054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 2019_06_07_174634) do
     t.index ["gym_id"], name: "index_hours_on_gym_id"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer "source"
+    t.bigint "gym_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_id"], name: "index_photos_on_gym_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.bigint "user_id"
+    t.bigint "gym_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_id"], name: "index_reviews_on_gym_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -59,4 +77,7 @@ ActiveRecord::Schema.define(version: 2019_06_07_174634) do
 
   add_foreign_key "gyms", "users"
   add_foreign_key "hours", "gyms"
+  add_foreign_key "photos", "gyms"
+  add_foreign_key "reviews", "gyms"
+  add_foreign_key "reviews", "users"
 end
